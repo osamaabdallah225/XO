@@ -5,18 +5,21 @@ body {
     display: flex;
     justify-content: center;
     transform: translateY(20%);
-    gap: 10px 10px;
+    /* gap: 10px 10px; */
+    
 }
 
 .container .circle {
     width: 133px;
     height: 107px;
     background-color: red;
+    margin-left: 10px;
     margin-bottom: 10px;
     font-size: 74px;
     text-align: center;
     font-weight: bold;
     color: white;
+   
     
 }
 #title {
@@ -58,26 +61,21 @@ button {
 button {
  position: fixed;
  width: 92%;
- font-size: 30px;
  bottom: 20px;
  top: auto;
  right: auto;
  left: auto;
-
  }
  .container .circle {
     width: 100px;
-    height: 100x;
-     
+    height: 100x;    
 }
 
 .container {
     position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 25%);
-    
-    
+    transform: translate(-50%, 25%);    
 }
 
     }

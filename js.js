@@ -1,15 +1,21 @@
-const circle = document.querySelectorAll('.circle');
+const circle = Array.from(document.getElementsByClassName('circle'));
 const inside = document.getElementById('inside');
 const title = document.getElementById('title');
 const button = document.getElementById('button');
 const container = document.querySelector('.container');
 let turn = "x";
 
-const frezze = () => {
+const winner = (num1, num2, num3) => {
     title.style.color = "#02842b";
     title.style.fontSize = "50px";
     container.style.pointerEvents = "none";
     button.style.display = "block";
+    circle[num1].style.backgroundColor = "green";
+    circle[num2].style.backgroundColor = "green";
+    circle[num3].style.backgroundColor = "green";
+    circle[num1].style.transform = "rotate(3deg)";
+    circle[num2].style.transform = "rotate(3deg)";
+    circle[num3].style.transform = "rotate(3deg)";
 }
 
 button.addEventListener('click', (el) => {
@@ -54,113 +60,73 @@ circle.forEach((el) => {
 
         if (circle[0].innerHTML === circle[1].innerHTML && circle[1].innerHTML === circle[2].innerHTML && circle[0].innerHTML !== "") {
             title.innerHTML = (`the winner is ${circle[2].innerHTML}`)
-            circle[0].style.backgroundColor = "green";
-            circle[1].style.backgroundColor = "green";
-            circle[2].style.backgroundColor = "green";
-            circle[0].style.transform = "rotate(3deg)";
-            circle[1].style.transform = "rotate(3deg)";
-            circle[2].style.transform = "rotate(3deg)";
-            frezze();
-
-
+            winner(0, 1, 2);
 
         }
 
-
         else if (circle[3].innerHTML === circle[4].innerHTML && circle[4].innerHTML === circle[5].innerHTML && circle[3].innerHTML !== "") {
             title.innerHTML = (`the winner is ${circle[3].innerHTML}`)
-            circle[3].style.backgroundColor = "green";
-            circle[4].style.backgroundColor = "green";
-            circle[5].style.backgroundColor = "green";
-            circle[3].style.transform = "rotate(3deg)";
-            circle[4].style.transform = "rotate(3deg)";
-            circle[5].style.transform = "rotate(3deg)";
-            frezze();
-
+            winner(3, 4, 5);
         }
 
         else if (circle[6].innerHTML === circle[7].innerHTML && circle[7].innerHTML === circle[8].innerHTML && circle[6].innerHTML !== "") {
             title.innerHTML = (`the winner is ${circle[6].innerHTML}`)
-            circle[6].style.backgroundColor = "green";
-            circle[7].style.backgroundColor = "green";
-            circle[8].style.backgroundColor = "green";
-            circle[6].style.transform = "rotate(3deg)";
-            circle[7].style.transform = "rotate(3deg)";
-            circle[8].style.transform = "rotate(3deg)";
-            frezze();
-
-
+            winner(6, 7, 8);
         }
         else if (circle[0].innerHTML === circle[3].innerHTML && circle[3].innerHTML === circle[6].innerHTML && circle[0].innerHTML !== "") {
             title.innerHTML = (`the winner is ${circle[0].innerHTML}`)
-            circle[0].style.backgroundColor = "green";
-            circle[3].style.backgroundColor = "green";
-            circle[6].style.backgroundColor = "green";
-            circle[0].style.transform = "rotate(3deg)";
-            circle[3].style.transform = "rotate(3deg)";
-            circle[6].style.transform = "rotate(3deg)";
-            frezze();
-
-
+            winner(0, 3, 6);
         }
 
         else if (circle[1].innerHTML === circle[4].innerHTML && circle[4].innerHTML === circle[7].innerHTML && circle[1].innerHTML !== "") {
             title.innerHTML = (`the winner is ${circle[1].innerHTML}`)
-            circle[1].style.backgroundColor = "green";
-            circle[4].style.backgroundColor = "green";
-            circle[7].style.backgroundColor = "green";
-            circle[1].style.transform = "rotate(3deg)";
-            circle[4].style.transform = "rotate(3deg)";
-            circle[7].style.transform = "rotate(3deg)";
-            frezze();
-
-
+            winner(1, 4, 7);
         }
 
         else if (circle[2].innerHTML === circle[5].innerHTML && circle[5].innerHTML === circle[8].innerHTML && circle[2].innerHTML !== "") {
             title.innerHTML = (`the winner is ${circle[2].innerHTML}`)
-            circle[2].style.backgroundColor = "green";
-            circle[5].style.backgroundColor = "green";
-            circle[8].style.backgroundColor = "green";
-            circle[2].style.transform = "rotate(3deg)";
-            circle[5].style.transform = "rotate(3deg)";
-            circle[8].style.transform = "rotate(3deg)";
-            frezze();
-
+            winner(2, 5, 8);
         }
         else if (circle[0].innerHTML === circle[4].innerHTML && circle[4].innerHTML === circle[8].innerHTML && circle[0].innerHTML !== "") {
             title.innerHTML = (`the winner is ${circle[0].innerHTML}`)
-            circle[0].style.backgroundColor = "green";
-            circle[4].style.backgroundColor = "green";
-            circle[8].style.backgroundColor = "green";
-            circle[0].style.transform = "rotate(3deg)";
-            circle[4].style.transform = "rotate(3deg)";
-            circle[8].style.transform = "rotate(3deg)";
-            frezze();
+            winner(0, 4, 8);
 
 
         }
         else if (circle[2].innerHTML === circle[4].innerHTML && circle[4].innerHTML === circle[6].innerHTML && circle[2].innerHTML !== "") {
             title.innerHTML = (`the winner is ${circle[2].innerHTML}`)
-            circle[2].style.backgroundColor = "green";
-            circle[4].style.backgroundColor = "green";
-            circle[6].style.backgroundColor = "green";
-            circle[2].style.transform = "rotate(3deg)";
-            circle[4].style.transform = "rotate(3deg)";
-            circle[6].style.transform = "rotate(3deg)";
-            frezze();
 
+            winner(2, 4, 6);
+
+            // circle[2].style.backgroundColor = "green";
+            // circle[4].style.backgroundColor = "green";
+            // circle[6].style.backgroundColor = "green";
+            // circle[2].style.transform = "rotate(3deg)";
+            // circle[4].style.transform = "rotate(3deg)";
+            // circle[6].style.transform = "rotate(3deg)";
+
+        }
+
+        else if (!circle.some(el => el.innerHTML === '')) {
+
+            console.log("no winner")
+            title.innerHTML = (`the game is draw`)
+            container.style.pointerEvents = "none";
+            button.style.display = "block";
+            title.style.color = "blue";
+            title.style.fontSize = "50px";
 
         }
 
 
 
 
-
         // console.log(idx)
-        // console.log(idx)
+        // console.log(circle.includes(''))
 
     })
+
+
 })
 
 
