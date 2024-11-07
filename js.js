@@ -114,7 +114,7 @@ circle.forEach((el) => {
             container.style.pointerEvents = "none";
             button.style.display = "block";
             title.style.color = "blue";
-            title.style.fontSize = "50px";
+            title.style.fontSize = "44px";
 
         }
 
